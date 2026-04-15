@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+How i make these blog pages?</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav class="navbar">
+<ul class="nav-list">
+<li class="logo"><a href="index.html">sIIIckok</a></li>
+<li class="spacer"></li>
+<li><a href="index.html">Home</a></li>
+<li><a href="https://www.github.com/siiickok/">GitHub</a></li>
+</ul>
+</nav>
+
+<div class="page">
+<br>
+<h1>How I make these Blog Pages?</h1>
+<br>
+<p>Its quite simple actually...</p>
+<p>I wrote a "blog generator" that takes a simple text file</p>
+<p>and turn it into a website.</p>
+<p>Infact that is how I made this exact blog,</p>
+<p>and all the blogs that are in this website.</p>
+<br>
+<a href="https://github.com/sIIIckOK/blogga">This is a link to the repo</a>
+<br>
+<br>
+<br>
+<p>example.page</p>
+<pre><code>
+Title &lt;--- title
+
+Title goes in the first line
+</code></pre>
+<br>
+<p>This is actually the title of the webpage itself, and will not show up in the document.</p>
+<p>If you want to use the name of the file as the page title, leave the first line blank</p>
+<br>
+<br>
+<p>This is how you would use links</p>
+<pre><code>
+@a &lt;link name&gt; &lt;link path&gt;
+</code></pre>
+<br>
+<p>OR</p>
+<br>
+<pre><code>
+@a &lt;link path&gt;
+</code></pre>
+<br>
+<p>The same directive "@a" supports both simple links and named links</p>
+<br>
+<p>BTW, you can also do cools things like this</p>
+<br>
+<pre><code>
+@a this is the name &lt;link&gt;
+</code></pre>
+<br>
+<p>The "@a" directive actually treats the last element as the path, so you can have names with spaces in them.</p>
+<br>
+<br>
+<p>It also supports images with "@img"</p>
+<br>
+<p>Use</p>
+<pre><code>
+@img &lt;link-to-image&gt;
+</code></pre>
+<br>
+<p>you can also use the use code blocks with the "@code" directive like this</p>
+<br>
+<img src="img/code_directive_preview.png"></img><br>
+<br>
+<p>If u put it all together you get can make</p>
+<pre><code>
+Walrus
+
+# Why Walrus?
+idk
+
+heres an image of a Walrus
+@img ./4_walrus_rsc/walrus.webp
+
+and heres a link to the Walrus Wiki:
+@a Walrus Wiki https://en.wikipedia.org/wiki/Walrus
+
+
+</code></pre>
+<br>
+<br>
+<p>Then we get this:</p>
+<br>
+<img src="img/walrus_webpage.png"></img><br>
+<p>Here is the link to the actual page btw:</p>
+<a href="https://siiickok.github.io/blogs/4_walrus.html">Walrus page</a>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+</body>
+</html>
