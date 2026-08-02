@@ -16,6 +16,7 @@ Walrus</title>
 <li><a href="https://www.github.com/siiickok/">GitHub</a></li>
 </ul>
 </nav>
+<div class="present-mode-btn"><button> P </button></div>
 
 <div class="page">
 <br>
@@ -23,11 +24,79 @@ Walrus</title>
 <p>idk</p>
 <br>
 <p>heres an image of a Walrus</p>
-<img src="img/walrus17.webp"></img><br>
+<img src="img/walrus.webp"></img><br>
 <p>and heres a link to the Walrus Wiki:</p>
-<a href="https://en.wikipedia.org/wiki/Walrus">Walrus Wiki</a>
+<a href="https://en.wikipedia.org/wiki/Walrus" target="_blank">Walrus Wiki</a>
 <br>
 <br>
+<style>.present-mode-btn { display: none; }</style>
 </div>
+<div class="viewport-layer invisible">
+</div>
+<button class="viewport-close-btn invisible">X</button>
 </body>
 </html>
+
+    <script>
+        const $ = (selector) => document.querySelector(selector)
+        const $$ = (selector) => document.querySelectorAll(selector)
+
+        let viewport_layer = $(".viewport-layer")
+
+        viewport_arr = []
+
+        let viewport_close_btn = $(".viewport-close-btn")
+        let viewport_btns = $$(".viewport-btn")
+
+        function open_viewport(e) {
+            let id = parseInt(e.srcElement.id, 10)
+            let element = viewport_arr[id]
+            viewport_layer.innerHTML = element
+            viewport_layer.classList.toggle('invisible')
+            viewport_close_btn.classList.toggle('invisible')
+        }
+
+        function close_viewport(e) {
+            viewport_layer.innerHTML = ''
+            viewport_layer.classList.toggle('invisible')
+            viewport_close_btn.classList.toggle('invisible')
+        }
+
+        for (let i = 0; i < viewport_btns.length; i++) {
+            viewport_btns[i].addEventListener("click", open_viewport)
+        }
+
+        viewport_close_btn.addEventListener("click", close_viewport);
+
+        let anchors = $$(".anchor")
+        let currentAnchor = 0
+
+        function goToAnchor(anchors, index) {
+            if (index < 0 || index >= anchors.length) return;
+
+            anchors[index].scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        document.addEventListener("keydown", (event) => {
+            if (!document.body.classList.contains("presentation")) return;
+
+            if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                if (currentAnchor + 1 < anchors.length) currentAnchor += 1;
+            }
+
+            if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+                if (currentAnchor - 1 >= 0) currentAnchor -= 1;
+            }
+            goToAnchor(anchors, currentAnchor)
+        });
+
+        $(".present-mode-btn").onclick = toggle_present;
+
+        function toggle_present() {
+            document.body.classList.toggle("presentation");
+            goToAnchor(anchors, 0)
+        }
+
+    </script>
